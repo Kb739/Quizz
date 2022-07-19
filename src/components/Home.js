@@ -1,14 +1,14 @@
 import React from 'react'
 
-function Home() {
+function Intro() {
     return (
-        <div className='home'>
-            <h1 className='home--title'>Quizzical</h1>
-            <p className='home--about'>
+        <div className='intro'>
+            <h1 className='intro--title'>Quizzical</h1>
+            <p className='intro--about'>
                 <em>"Everyone loves sport. And everyone loves a quiz."</em>
             </p>
-            <button className='home--start'>Start quizz</button>
+            <button className='intro--start'>Start quizz</button>
         </div>
     )
 }
-export default Home;
+export default Intro;

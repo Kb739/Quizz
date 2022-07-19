@@ -1,0 +1,27 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+main {
+    background-color: #F5F7FB;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.blob-2 {
+    position: fixed;
+    bottom: 0;
+    left: 0
+}
+
+.blob-1 {
+    position: fixed;
+    top: 0;
+    right: 0;
+}

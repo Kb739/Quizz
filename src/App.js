@@ -1,6 +1,6 @@
 import React from 'react'
 import './style.css'
-import Intro from './components/Home';
+import Intro from './components/Intro';
 
 function App() {
     return (

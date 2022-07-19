@@ -25,3 +25,35 @@ main {
     top: 0;
     right: 0;
 }
+
+.home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.home--title {
+    margin: 0;
+    color: #293264;
+    font-family: Karla, sans-serif;
+    font-size: 30px;
+}
+
+.home--about {
+    color: #293264;
+    margin-block: 7px 30px;
+    font-family: Inter, sans-serif;
+}
+
+.home--start {
+    width: 193px;
+    height: 52px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: #F5F7FB;
+    background: #4D5B9E;
+    border-radius: 15px;
+    border: none;
+    cursor: pointer;
+}

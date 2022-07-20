@@ -1,5 +1,5 @@
-import userEvent from '@testing-library/user-event';
-import React, { useEffect } from 'react'
+import React from 'react'
+import Mcq from './Mcq'
 
 function Questions() {
 
@@ -12,10 +12,12 @@ function Questions() {
             then(result => setData(result.results))
     }, [])
 
+    const questions = data.map(info => <Mcq{...info} />)
+
     return (
-        <h1>
-            Questions
-        </h1>
+        <div>
+            {questions}
+        </div>
     )
 }
 export default Questions;

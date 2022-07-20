@@ -12,12 +12,13 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
 }
 
 .blob-2 {
     position: fixed;
     bottom: 0;
-    left: 0
+    left: 0;
 }
 
 .blob-1 {
@@ -30,6 +31,8 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
+    z-index: 1;
+
 }
 
 .intro--title {
@@ -56,4 +59,41 @@ main {
     border-radius: 15px;
     border: none;
     cursor: pointer;
+}
+
+.quiz {
+    z-index: 1;
+    height: 100%;
+    max-width: 1000px;
+    padding: 50px;
+}
+
+.question {
+    font-family: 'Karla';
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: #293264;
+}
+
+.line {
+    border-bottom: 0.1em solid #DBDEF0;
+    height: 0;
+    padding-top: 2em;
+}
+
+.choices {
+    list-style: none;
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.choices>button {
+    /* height: 20px; */
+    padding: 0.5em 1em;
+    border-radius: 8px;
+    border: none;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 12px;
 }

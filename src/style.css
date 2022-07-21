@@ -99,18 +99,23 @@ main {
 }
 
 .quiz>footer {
-    border: 1px solid black;
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 30px;
+    margin-top: 10px;
+}
+
+.score-text {
+    font-family: 'Inter';
+    color: #293264;
 }
 
 .quiz>footer>button {
     background: #4D5B9E;
-    border-radius: 15px;
+    border-radius: 12px;
     border: none;
-    font-family: 'Inter';
+    font-family: Inter, sans-serif;
     font-weight: 600;
     font-size: 15px;
     color: #F5F7FB;

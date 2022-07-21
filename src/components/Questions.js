@@ -4,20 +4,22 @@ import { nanoid } from 'nanoid'
 function Questions() {
 
     const [data, setData] = React.useState([])
-    const [quizEnd, setQuizEnd] = React.useState(false)
+    const [showAnswers, setShowAnswers] = React.useState(false)
     const [quizRestart, setQuizRestart] = React.useState(false)
 
     React.useEffect(() => {
         fetch('https://opentdb.com/api.php?amount=5&category=9&type=multiple').
             then((response) => response.json()).
-            then(result => setData(() => {
-                const arr = result.results;
-                return arr.map(obj => ({ info: { ...obj, selected_answer: "" }, id: nanoid() }))
-            }))
+            then(result => {
+                setData(() => {
+                    const arr = result.results;
+                    return arr.map(obj => ({ info: { ...obj, selected_answer: "" }, id: nanoid() }))
+                })
+            })
     }, [quizRestart])
 
     function updateSelection(answer, id) {
-        if (!quizEnd) {
+        if (!showAnswers) {
             setData((prevData) => prevData.map(qns => (qns.id === id ?
                 {
                     ...qns,
@@ -42,7 +44,7 @@ function Questions() {
     })
 
     function verify() {
-        setQuizEnd(true)
+        setShowAnswers(true)
         setData(prevData => prevData.map(qns => ({
             ...qns,
             info:
@@ -61,8 +63,10 @@ function Questions() {
     }
 
     function restartQuiz() {
+        setData([])
         setQuizRestart(prev => !prev)
-        setQuizEnd(false)
+        setShowAnswers(false)
+
     }
 
     function hasAqcuiredData() {
@@ -76,9 +80,9 @@ function Questions() {
                     {questions}
                     <footer>
                         {
-                            !quizEnd ? <button className='check' onClick={verify}>Check answers</button>
+                            !showAnswers ? <button className='check' onClick={verify}>Check answers</button>
                                 : <>
-                                    <p>You scored {calculateScore()} correct answers</p>
+                                    <h3 className="score-text">You scored {calculateScore()} correct answers</h3>
                                     <button className='check' onClick={restartQuiz}>Play again</button>
                                 </>
                         }

@@ -23,7 +23,13 @@ function Mcq(props) {
     }
 
     const options = buttons.map(btn => {
-        const style = { backgroundColor: props.selected_answer === btn.value ? '#D6DBF5' : 'white' }
+        let style = { backgroundColor: props.selected_answer === btn.value ? '#D6DBF5' : 'white' }
+        if (props.reveal_answer) {
+            const correctAnswerColor = props.selected_answer ? '#94D7A2' : '#6AB0F0'
+            const bg = (btn.value === props.correct_answer) ? correctAnswerColor
+                : btn.value === props.selected_answer ? '#F8BCBC' : 'white';
+            style = { backgroundColor: bg }
+        }
         return (
             < button style={style}
                 key={btn.id} onClick={() => buttonClick(btn.id)}> {he.decode(btn.value)}

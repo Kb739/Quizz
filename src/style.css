@@ -97,3 +97,22 @@ main {
     font-weight: 500;
     font-size: 12px;
 }
+
+.quiz>footer {
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+.quiz>footer>button {
+    background: #4D5B9E;
+    border-radius: 15px;
+    border: none;
+    font-family: 'Inter';
+    font-weight: 600;
+    font-size: 15px;
+    color: #F5F7FB;
+    padding: 10px 20px;
+}

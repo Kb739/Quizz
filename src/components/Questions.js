@@ -65,23 +65,26 @@ function Questions() {
         setQuizEnd(false)
     }
 
+    function hasAqcuiredData() {
+        return data.length > 0;
+    }
+
     return (
         <>
-            <div className='quiz'>
-                {questions}
-                <div>
-                    {
-                        !quizEnd ? <button className='check' onClick={verify}>Check answers</button>
-                            : <>
-                                <p>You scored {calculateScore()} correct answers</p>
-                                <button className='check' onClick={restartQuiz}>Play again</button>
-                            </>
-                    }
-                </div>
+            {hasAqcuiredData() ?
+                <div className='quiz'>
+                    {questions}
+                    <footer>
+                        {
+                            !quizEnd ? <button className='check' onClick={verify}>Check answers</button>
+                                : <>
+                                    <p>You scored {calculateScore()} correct answers</p>
+                                    <button className='check' onClick={restartQuiz}>Play again</button>
+                                </>
+                        }
+                    </footer>
 
-            </div>
-
-
+                </div> : ''}
         </>
 
     )

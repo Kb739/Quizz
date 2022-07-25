@@ -3,11 +3,13 @@ import Mcq from './Mcq'
 import { nanoid } from 'nanoid'
 function Questions() {
 
+    const [loading, setLoading] = React.useState(true)
     const [data, setData] = React.useState([])
     const [showAnswers, setShowAnswers] = React.useState(false)
     const [quizRestart, setQuizRestart] = React.useState(false)
 
     React.useEffect(() => {
+        setLoading(true)
         fetch('https://opentdb.com/api.php?amount=5&category=9&type=multiple').
             then((response) => response.json()).
             then(result => {
@@ -15,6 +17,7 @@ function Questions() {
                     const arr = result.results;
                     return arr.map(obj => ({ info: { ...obj, selected_answer: "" }, id: nanoid() }))
                 })
+                setLoading(false)
             })
     }, [quizRestart])
 
@@ -63,19 +66,14 @@ function Questions() {
     }
 
     function restartQuiz() {
-        setData([])
         setQuizRestart(prev => !prev)
         setShowAnswers(false)
 
     }
 
-    function hasAqcuiredData() {
-        return data.length > 0;
-    }
-
     return (
         <>
-            {hasAqcuiredData() ?
+            {!loading ?
                 <div className='quiz'>
                     {questions}
                     <footer>
